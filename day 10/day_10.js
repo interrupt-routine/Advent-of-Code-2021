@@ -21,7 +21,6 @@ function checkSyntax (line) {
 	for (const char of line) {
 		if ("{([<".includes(char)) {
 			stack.push(char);
-			continue;
 		} else if ("})]>".includes(char)) {
 			if (!areOpposite(stack.pop(), char))
 				return {status : CORRUPTED, illegalChar : char};
